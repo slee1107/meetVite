@@ -10,14 +10,15 @@ const progressStyle = {
   position: 'absolute',
   top: '120px',
   right: '100px',
-  left: '100px'
+  left: '100px',
+  
 }
 export default class Progress extends Component {
   render() {
     
     return (
       <div>
-        <ProgressBar style={progressStyle} active now={(100/this.props.totalSteps)*this.props.currentStep}/>
+        <ProgressBar className="progress" style={progressStyle} active now={(100/this.props.totalSteps)*this.props.currentStep}/>
         <div style={labelStyle}>Step {this.props.currentStep} of {this.props.totalSteps}</div>
       </div>
     );

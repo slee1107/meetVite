@@ -10,7 +10,7 @@ const logoStyle = {
 }
 
 /* padding shorthand for 'top right bottom left' */
-const rectangleBackStyle = {
+const rectangleOuterStyle = {
   position:'absolute',
   right:'100px',
   left:'100px',
@@ -19,7 +19,7 @@ const rectangleBackStyle = {
   zIndex:'1'
 }
 
-const rectangleFrontStyle = {
+const rectangleInnerStyle = {
   position:'absolute',
   right:'100px',
   left:'100px',
@@ -29,16 +29,23 @@ const rectangleFrontStyle = {
   zIndex:'2',
 }
 
-class App extends Component {
+// Need to figure out which component is going to change the progress bar step
+// Change progress bar to red '#FF342A'
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  
   render() {
     return (
       <div>
          <div style={logoStyle}>MeetVite</div>
-         <Progress totalSteps={4} currentStep={2}/>
-         <div style={rectangleBackStyle} className="rounded progress"></div>
-         <div style={rectangleFrontStyle} className="rounded progress"></div>
+         <Progress totalSteps={4} currentStep={this.state.step}/>
+         <div style={rectangleOuterStyle} className="rounded progress"></div>
+         <div style={rectangleInnerStyle} className="rounded progress">
+         </div>
       </div>
-     
     );
   }
 }

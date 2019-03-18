@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import './App.css';
 import Progress from './Components/Progress'
+import Step1 from './Components/Step1'
 
 const logoStyle = {
   fontFamily:'Oleo Script Swash Caps',
@@ -34,16 +35,22 @@ const rectangleInnerStyle = {
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {step:0};
   }
 
   
   render() {
+    const handleStep = (self) => (currStep) => {
+      self.setState({step: currStep});
+    }
+
     return (
       <div>
          <div style={logoStyle}>MeetVite</div>
          <Progress totalSteps={4} currentStep={this.state.step}/>
          <div style={rectangleOuterStyle} className="rounded progress"></div>
          <div style={rectangleInnerStyle} className="rounded progress">
+            <Step1 handleStep={handleStep(this)}/>
          </div>
       </div>
     );

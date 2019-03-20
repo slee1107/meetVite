@@ -35,22 +35,26 @@ const rectangleInnerStyle = {
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {step:0};
+    this.state = {step:0, date: new Date()};
   }
 
   
   render() {
-    const handleStep = (self) => (currStep) => {
-      self.setState({step: currStep});
+    const handleStep = (self) => (step) => {
+      // self.setState((prevState) => {return {step: prevState.step + 1}});
+      self.setState({step: step})
     }
-
+    const handleDateChange = (self) => (date) => {
+      self.setState({date:date})
+    }
+    
     return (
       <div>
          <div style={logoStyle}>MeetVite</div>
          <Progress totalSteps={4} currentStep={this.state.step}/>
          <div style={rectangleOuterStyle} className="rounded progress"></div>
          <div style={rectangleInnerStyle} className="rounded progress">
-            <Step1 handleStep={handleStep(this)}/>
+            <Step1 step={this.state.step} handleStep={handleStep(this)} handleDate={handleDateChange(this)} initDate={this.state.date} />
          </div>
       </div>
     );

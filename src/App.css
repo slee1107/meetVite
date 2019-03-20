@@ -30,6 +30,12 @@ input {
 textarea {
   width: 350px !important; 
 }
+
+label {
+  font-family:Maven Pro, sans-serif;
+  font-size: 20px;
+  color:white;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

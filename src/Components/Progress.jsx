@@ -18,7 +18,7 @@ export default class Progress extends Component {
     
     return (
       <div>
-        <ProgressBar className="progress" style={progressStyle} active now={(100/this.props.totalSteps)*this.props.currentStep}/>
+        <ProgressBar className="progress" style={progressStyle} active="true" now={(100/this.props.totalSteps)*this.props.currentStep}/>
         <div style={labelStyle}>Step {this.props.currentStep} of {this.props.totalSteps}</div>
       </div>
     );

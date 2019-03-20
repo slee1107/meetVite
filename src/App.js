@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
-import Progress from './Components/Progress'
-import Step1 from './Components/Step1'
+import Progress from './Components/Progress';
+import Step1 from './Components/Step1';
 
 const logoStyle = {
   fontFamily:'Oleo Script Swash Caps',
